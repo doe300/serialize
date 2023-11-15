@@ -1,0 +1,13 @@
+file(GLOB_RECURSE DATA_FILES "${TEST_FOLDER}/*.bin")
+if (DATA_FILES)
+  file(REMOVE ${DATA_FILES})
+endif()
+execute_process(COMMAND ${TEST_PROGRAM} --serialize RESULT_VARIABLE TEST_ERROR)
+if(${TEST_ERROR})
+  message(FATAL_ERROR "Error running serialization process")
+endif()
+
+execute_process(COMMAND ${TEST_PROGRAM} --deserialize RESULT_VARIABLE TEST_ERROR)
+if(${TEST_ERROR})
+  message(FATAL_ERROR "Error running deserialization process")
+endif()

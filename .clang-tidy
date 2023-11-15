@@ -1,0 +1,6 @@
+---
+Checks:          '*,-abseil*,-android*,-altera*,-boost*,-fuchsia*,-google*,-llvm*,-*objc*,-openmp*,-clang-analyzer-osx*,-hicpp*,
+                  -readability-implicit-bool-conversion,-readability-identifier-length,
+                  -clang-diagnostic-c++98-*,-clang-diagnostic-padded,
+                  -modernize-use-auto,-modernize-use-transparent-functors,-modernize-use-trailing-return-type,
+                  -cert-err58-cpp,-cert-dcl21-cpp,-cert-env33-c'

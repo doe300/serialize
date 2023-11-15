@@ -1,0 +1,7 @@
+AccessModifierOffset: -2
+AlwaysBreakTemplateDeclarations: MultiLine
+ColumnLimit: 120
+IndentWidth: 2
+NamespaceIndentation: All
+PointerAlignment: Left
+UseTab: Never
