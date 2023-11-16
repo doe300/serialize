@@ -5,6 +5,7 @@ project(serialize)
 # Option whether to enable code coverage analysis via gcov
 option(SERIALIZE_BUILD_COVERAGE "Enables collection of code coverage via gcov" OFF)
 option(SERIALIZE_BUILD_CLANG_TIDY "Enables running cang-tidy while building" OFF)
+option(SERIALIZE_BUILD_EXAMPLES "Enables building of the example executables" OFF)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -18,10 +19,13 @@ endif()
 
 add_subdirectory(src)
 
+if(SERIALIZE_BUILD_EXAMPLES)
+  add_subdirectory(examples)
+endif()
+
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   include(CTest)
 endif()
 if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME OR SERIALIZE_BUILD_TESTING) AND BUILD_TESTING)
-  add_subdirectory(examples)
   add_subdirectory(test)
 endif()
