@@ -9,12 +9,15 @@ add_executable(test_serialize
   test_type_safe.cpp
 )
 target_link_libraries(test_serialize PRIVATE serialize cpptest-lite)
-target_compile_options(test_serialize PRIVATE -Wall -Wextra)
 
 add_executable(test_processes test_processes.cpp)
 target_link_libraries(test_processes PRIVATE serialize cpptest-lite)
-target_compile_options(test_processes PRIVATE -Wall -Wextra)
 target_compile_definitions(test_processes PRIVATE TEST_FILES_PATH="${CMAKE_BINARY_DIR}/Testing")
+
+if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU" OR "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
+  target_compile_options(test_serialize PRIVATE -Wall -Wextra)
+  target_compile_options(test_processes PRIVATE -Wall -Wextra)
+endif()
 
 include(${cpptest-lite_SOURCE_DIR}/cmake/CppTest.cmake)
 cpptest_discover_tests(test_serialize)
