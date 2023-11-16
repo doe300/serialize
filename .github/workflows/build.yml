@@ -4,7 +4,7 @@ on:
   [push, pull_request]
 
 jobs:
-  Build Windows:
+  BuildWindows:
     name: Windows ${{ matrix.build_type }}
     runs-on: windows-latest
     strategy:
@@ -27,7 +27,7 @@ jobs:
     - name: Test
       run: ctest --test-dir ${{github.workspace}}/build -C ${{ matrix.build_type }} --output-on-failure
 
-  Build Linux:
+  BuildLinux:
     name: ${{ matrix.config.name }} ${{ matrix.build_type }}
     runs-on: ubuntu-latest
     container: fedora:latest # Has updated GCC and CLang versions in comparison to ubuntu-latest
