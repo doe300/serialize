@@ -19,7 +19,6 @@ struct MyAggregate {
   uint32_t u;
   float f;
   std::string s;
-  std::variant<int64_t, double> v;
 
   friend auto operator<=>(const MyAggregate&, const MyAggregate&) = default;
 };
@@ -28,7 +27,7 @@ int main() {
   std::stringstream ss;
 
   // Serialization
-  const MyAggregate input = {42, -17.0f, "Foo", 123};
+  const MyAggregate input = {42, -17.0f, "Foo"};
 
   serialize::BitPackingSinkSerializer s{ss};
   serialize::serialize(s, input);
