@@ -4,7 +4,7 @@ on:
   [push, pull_request]
 
 jobs:
-  buildWindows:
+  Build Windows:
     name: Windows ${{ matrix.build_type }}
     runs-on: windows-latest
     strategy:
@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Configure
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_CONFIGURATION_TYPES=${{ matrix.build_type }} -DSERIALIZE_BUILD_TESTING=ON -DSERIALIZE_BUILD_EXAMPLES=ON
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_CONFIGURATION_TYPES=${{ matrix.build_type }} -DSERIALIZE_BUILD_TESTING=ON -DSERIALIZE_BUILD_EXAMPLES=ON -DCMAKE_CXX_FLAGS="/Zc:__cplusplus /std:c++20 /utf-8"
       env:
         CC: cl
         CXX: cl
@@ -27,10 +27,10 @@ jobs:
     - name: Test
       run: ctest --test-dir ${{github.workspace}}/build -C ${{ matrix.build_type }} --output-on-failure
 
-  buildLinux:
+  Build Linux:
     name: ${{ matrix.config.name }} ${{ matrix.build_type }}
     runs-on: ubuntu-latest
-    container: fedora-latest # Has updated GCC and CLang versions in comparison to ubuntu-latest
+    container: fedora:latest # Has updated GCC and CLang versions in comparison to ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
