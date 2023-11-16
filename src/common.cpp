@@ -1,3 +1,8 @@
+/*
+ * Author: doe300
+ *
+ * See the file "LICENSE" for the full license governing this code.
+ */
 
 #include "deserialize.hpp"
 #include "serialize.hpp"

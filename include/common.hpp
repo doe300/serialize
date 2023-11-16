@@ -1,3 +1,10 @@
+/*
+ * Common helper and utility symbols.
+ *
+ * Author: doe300
+ *
+ * See the file "LICENSE" for the full license governing this code.
+ */
 #pragma once
 
 #include <array>

@@ -1,3 +1,10 @@
+/*
+ * Type safe serialization wrappers.
+ *
+ * Author: doe300
+ *
+ * See the file "LICENSE" for the full license governing this code.
+ */
 #pragma once
 
 #include "deserialize.hpp"

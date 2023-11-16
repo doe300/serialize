@@ -1,3 +1,10 @@
+/*
+ * Simple stream Serializer and Deserializer implementations.
+ *
+ * Author: doe300
+ *
+ * See the file "LICENSE" for the full license governing this code.
+ */
 #pragma once
 
 #include "deserialize.hpp"
