@@ -19,7 +19,7 @@ namespace serialize {
     uintmax_t value = 0;
     uint8_t usedBits = 0;
 
-    constexpr bool operator<=>(const BitCache&) const noexcept = default;
+    constexpr auto operator<=>(const BitCache&) const noexcept = default;
   };
 
   /**

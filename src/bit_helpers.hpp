@@ -209,7 +209,7 @@ namespace serialize {
       uintmax_t cacheValue;
       uint8_t cacheBits;
 
-      constexpr bool operator<=>(const CacheResult& other) const noexcept = default;
+      constexpr auto operator<=>(const CacheResult& other) const noexcept = default;
     };
 
     static constexpr CacheResult testFlushFullBytes(BitCache cache) {
